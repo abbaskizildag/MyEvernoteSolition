@@ -1,0 +1,40 @@
+﻿@model List<MyEvernote.Entities.Messages.ErrorMessageObj>
+@{
+    ViewBag.Title = "Geçersiz İşlem";
+}
+
+<link href="~/Content/login-register.css" rel="stylesheet" />
+<section class="login-info">
+    <div class="container">
+        <div class="row main">
+            <div class="form-header">
+                <h1 class="text-center ">Yönlendiriliyorsunuz...</h1>
+            </div>
+            <div class="main-content">
+                <div class="text-danger">
+
+                    <h2><span class="glyphicon glyphicon-remove"></span>Geçersiz İşlem....</h2>
+                    <hr />
+                    <p class="text-justify">
+                      
+                        @foreach (MyEvernote.Entities.Messages.ErrorMessageObj err in Model)
+                        {
+                            @err.Message <br>
+                        }
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $("footer").parent().hide(); //ekranda footer kısmını gizledik. istersek kalabilirdi. parents yazarsan
+        setTimeout(function () {
+
+            window.location="/Home/Index"
+        }, 10000)
+    });
+</script>
